@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "45320989638",
+    "firebase_url": "https://phoneauth-a777d.firebaseio.com",
+    "project_id": "phoneauth-a777d",
+    "storage_bucket": "phoneauth-a777d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:45320989638:android:7fe95e909df71f7a51e0c7",
+        "android_client_info": {
+          "package_name": "com.kona.phoneauth"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "45320989638-ggec7c3u33udmrsm6pags5o8q139dthp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDcjZND8LRLKTnJPPpmyEzoczgPRXm_oi4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "45320989638-ggec7c3u33udmrsm6pags5o8q139dthp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

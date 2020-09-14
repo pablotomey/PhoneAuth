@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">PhoneAuth</string>
+    <string name="numero_de_telefono">Numero de teléfono</string>
+    <string name="verificar">Verificar</string>
+    <string name="bienvenido_a_phoneauth">Bienvenido a PhoneAuth</string>
+    <string name="logout">Logout</string>
+    <string name="ingresa_tu_numero_de_tel_fono">Ingresa tu número de teléfono</string>
+    <string name="ingresar">Ingresar</string>
+    <string name="ingresar_codigo">Ingresar código</string>
+    <string name="ingresar_codigo_verificacion">Ingresa el código de verificación</string>
+</resources>
