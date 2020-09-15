@@ -8,4 +8,5 @@
     <string name="ingresar">Ingresar</string>
     <string name="ingresar_codigo">Ingresar código</string>
     <string name="ingresar_codigo_verificacion">Ingresa el código de verificación</string>
+    <string name="numero">\"Numero: \"</string>
 </resources>
