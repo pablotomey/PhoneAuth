@@ -1,30 +1,33 @@
 package com.kona.phoneauth
 
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
+import android.view.View
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.FirebaseException
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
-import com.google.firebase.auth.PhoneAuthCredential
-import com.google.firebase.auth.PhoneAuthProvider
+import com.google.firebase.auth.*
 import java.util.concurrent.TimeUnit
 
 class PhoneNumberActivity : AppCompatActivity() {
 
     private lateinit var auth: FirebaseAuth
     private lateinit var mcallback: PhoneAuthProvider.OnVerificationStateChangedCallbacks
+    private lateinit var loadBar: ProgressBar
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_phone_number)
 
+        auth = FirebaseAuth.getInstance()
+
         val phoneNumberTxt = findViewById<EditText>(R.id.phone_number_txt)
         val checkBtn = findViewById<Button>(R.id.phoneCheck)
+        loadBar = findViewById(R.id.load_bar)
 
         checkBtn.setOnClickListener {
             val phoneNum = phoneNumberTxt.text.toString()
@@ -32,6 +35,8 @@ class PhoneNumberActivity : AppCompatActivity() {
             if (phoneNum.isEmpty()){
                 Toast.makeText(this,"No ha ingresado un número",Toast.LENGTH_SHORT).show()
             }else {
+                loadBar.visibility = View.VISIBLE
+
                 PhoneAuthProvider.getInstance().verifyPhoneNumber(
                     phoneNum,
                     60,
@@ -49,8 +54,9 @@ class PhoneNumberActivity : AppCompatActivity() {
             }
 
             override fun onVerificationFailed(e: FirebaseException) {
-
+                Log.e("fail",e.message!!)
                 Toast.makeText(applicationContext,"Error en la verificación",Toast.LENGTH_SHORT).show()
+                loadBar.visibility = View.GONE
             }
 
             override fun onCodeSent(verificationId: String, token: PhoneAuthProvider.ForceResendingToken) {
@@ -59,7 +65,6 @@ class PhoneNumberActivity : AppCompatActivity() {
                 intent.putExtra("AuthCredential", verificationId)
                 startActivity(intent)
             }
-
         }
     }
 
@@ -70,7 +75,7 @@ class PhoneNumberActivity : AppCompatActivity() {
             }else if (task.exception is FirebaseAuthInvalidCredentialsException){
                 Toast.makeText(this,"Error en la verificación",Toast.LENGTH_SHORT).show()
             }
-            // progress bar off
+            loadBar.visibility = View.GONE
         }
     }
 
@@ -80,5 +85,13 @@ class PhoneNumberActivity : AppCompatActivity() {
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
         startActivity(intent)
         finish()
+    }
+
+    override fun onStart() {
+        super.onStart()
+
+        if (auth.currentUser != null){
+            sendHome()
+        }
     }
 }
