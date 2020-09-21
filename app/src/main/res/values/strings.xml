@@ -5,8 +5,17 @@
     <string name="bienvenido_a_phoneauth">Bienvenido a PhoneAuth</string>
     <string name="logout">Logout</string>
     <string name="ingresa_tu_numero_de_tel_fono">Ingresa tu número de teléfono</string>
-    <string name="ingresar">Ingresar</string>
     <string name="ingresar_codigo">Ingresar código</string>
     <string name="ingresar_codigo_verificacion">Ingresa el código de verificación</string>
     <string name="numero">\"Numero: \"</string>
+    <string name="img_phone_number">img-phone-number</string>
+    <string name="enviar_codigo">Enviar código</string>
+    <string name="msg_phone_activity">Puedes ingresar tu número o el de prueba +1 650 555 3434. * no recibirás SMS con el numero de prueba.</string>
+    <string name="number_hint">+00-00000000</string>
+    <string name="ingresa_el_codigo_de_verificacion">Ingresa el código de verificación</string>
+    <string name="xxxxxx">XXXXXX</string>
+    <string name="ingresar">Ingresar</string>
+    <string name="msg_code_activity">Si usaste el número de prueba el código es 123456. Si no, recibirás SMS con el código para ingresar.</string>
+    <string name="main_img">main-img</string>
+    <string name="autenticacion_exitosa">Autenticación exitosa!</string>
 </resources>

@@ -80,6 +80,7 @@ class PhoneNumberActivity : AppCompatActivity() {
     }
 
     private fun sendHome(){
+        // Dirigimos al usuario al MainActivity y limpiamos los tasks creados
         val intent = Intent(this,MainActivity::class.java)
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
@@ -89,7 +90,7 @@ class PhoneNumberActivity : AppCompatActivity() {
 
     override fun onStart() {
         super.onStart()
-
+        // Verfica si el usuario ya esta creado y autenticado
         if (auth.currentUser != null){
             sendHome()
         }
